@@ -4,6 +4,7 @@
 # 192.168.99. (Management pool)
 # 10.0.1. (VPN pool)
 # changemeipseckey (IPSEC PSK)
+# changemevpnuser (VPN user)
 # changemevpnpass (VPN Password)
 
 #### DHCP Server
@@ -57,7 +58,7 @@ add dns-server=192.168.1.1 local-address=10.0.1.1 name=VPN-profile \
     remote-address=VPN-pool use-compression=yes use-upnp=no
 
 /ppp secret
-add name=twistedpear profile=VPN-profile service=l2tp password=changemevpnpass
+add name=changemevpnuser profile=VPN-profile service=l2tp password=changemevpnpass
 
 /interface l2tp-server server
 set authentication=mschap2 default-profile=VPN-profile enabled=yes \
@@ -74,3 +75,9 @@ set ssh address=192.168.1.0/24,192.168.99.0/24,10.0.1.0/24
 set api disabled=yes
 set winbox address=192.168.1.0/24,192.168.99.0/24,10.0.1.0/24
 set api-ssl disabled=yes
+
+
+#### Run last:
+
+/interface bridge
+set bridge vlan-filtering=yes

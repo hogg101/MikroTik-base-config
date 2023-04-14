@@ -1,6 +1,3 @@
-# find and replace for production:
-# nameofinternetconnection (Label of ether1)
-
 /interface bridge
 add name=bridge vlan-filtering=no
 
@@ -10,8 +7,6 @@ set [ find default-name=ether2 ] disabled=yes
 set [ find default-name=ether3 ] disabled=yes
 set [ find default-name=ether4 ] disabled=yes
 set [ find default-name=ether5 ] disabled=yes
-set [ find default-name=ether11 ] disabled=yes
-set [ find default-name=ether12 ] disabled=yes
 
 # Uncomment for PPPoE connection on WAN port.
 # /interface pppoe-client
