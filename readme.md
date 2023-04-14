@@ -4,7 +4,7 @@ This is a collection of MikroTik scripts which can be modified for production.
 
 The goal is to set up a solid foundation for a home router with the following features:
 
-- VLANs in place to separate broadcast domains into “Private, Guest and Management” subnets. By default inter-VLAN-routing is allowed through the firewall. Additional configuration will be needed to block VLANs from accessing each other.
+- VLANs in place to separate broadcast domains into “Private, Guest and Management” subnets. By default, inter-VLAN-routing is allowed through the firewall. Additional configuration will be needed to block VLANs from accessing each other.
 - Strong IPv4 and IPv6 firewall
 - Single WAN but with the ability to easily add multiple internet connections and apply policy based routing or failover.
 - Unnecessary services turned off. Useful ones kept on but secured.
