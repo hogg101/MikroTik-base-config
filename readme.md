@@ -56,7 +56,7 @@ Add a VPN user and set their password for remote access.
 Set up the L2TP server and give it a pre-shared-key.
 12. **/ip/service**
 Disable the services that won’t be required and specify the addresses that are allowed access to the services that will remain enabled.
-13. /interface/bridge
+13. **/interface/bridge**
 At this point you’re ready to enable VLAN filtering on the bridge. You should be able to regain access via the IP address of the router’s “native” or “untagged” VLAN once you get an address from the DHCP server.
 
 ## Firewall
