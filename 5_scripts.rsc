@@ -3,6 +3,7 @@
 # changemedomain (DDNS domain)
 # changemenoipusername
 # changemenoippassword
+# changemeddnsinterface
 
 #### NoIP DDNS updater
 
@@ -24,7 +25,7 @@ add dont-require-permissions=no name=DDNSupdate policy=\
     \n:local noiphost \"changemesubdomain.changemedomain.com\"\r\
     \n\r\
     \n# Change to the name of interface that gets the dynamic IP address\r\
-    \n:local inetinterface \"ether1\"\r\
+    \n:local inetinterface \"changemeddnsinterface\"\r\
     \n\r\
     \n#-----------------------------------------------------------------------\
     -------------\r\
