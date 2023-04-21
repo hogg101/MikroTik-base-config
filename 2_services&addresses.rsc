@@ -77,7 +77,7 @@ set winbox address=192.168.1.0/24,192.168.99.0/24,10.0.1.0/24
 set api-ssl disabled=yes
 
 
-#### Run last:
+#### Turn on VLAN filtering:
 
 /interface bridge
 set bridge vlan-filtering=yes
