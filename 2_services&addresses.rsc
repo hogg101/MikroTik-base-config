@@ -51,7 +51,7 @@ set allow-remote-requests=yes servers=1.1.1.1,1.0.0.1,8.8.8.8,8.8.4.4
 /ip dns static
 add address=192.168.99.1 name=router.lan
 
-#### VPN
+#### L2TP VPN
 
 /ppp profile
 add dns-server=192.168.1.1 local-address=10.0.1.1 name=VPN-profile \
