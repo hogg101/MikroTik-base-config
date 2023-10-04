@@ -1,6 +1,6 @@
 # Find and replace for production:
 # 192.168.1. (port forwarding subnet)
-# 10.0.1 (VPN pool)
+# 10.0.1. (VPN pool)
 
 	#V4 Input chain
 /ip firewall filter
