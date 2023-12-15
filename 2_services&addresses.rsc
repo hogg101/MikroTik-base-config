@@ -51,29 +51,15 @@ set allow-remote-requests=yes servers=1.1.1.1,1.0.0.1,8.8.8.8,8.8.4.4
 /ip dns static
 add address=192.168.99.1 name=router.lan
 
-#### L2TP VPN
-
-/ppp profile
-add dns-server=192.168.1.1 local-address=10.0.1.1 name=VPN-profile \
-    remote-address=VPN-pool use-compression=yes use-upnp=no
-
-/ppp secret
-add name=changemevpnuser profile=VPN-profile service=l2tp password=changemevpnpass
-
-/interface l2tp-server server
-set authentication=mschap2 default-profile=VPN-profile enabled=yes \
-    keepalive-timeout=10 max-mru=1460 max-mtu=1460 use-ipsec=yes \
-    ipsec-secret=changemeipseckey
-
 #### Services
 
 /ip service
 set telnet disabled=yes
 set ftp disabled=yes
-set www address=192.168.1.0/24,192.168.99.0/24,10.0.1.0/24
-set ssh address=192.168.1.0/24,192.168.99.0/24,10.0.1.0/24
+set www address=192.168.1.0/24,192.168.99.0/24,192.168.216.2/24
+set ssh address=192.168.1.0/24,192.168.99.0/24,192.168.216.2/24
 set api disabled=yes
-set winbox address=192.168.1.0/24,192.168.99.0/24,10.0.1.0/24
+set winbox address=192.168.1.0/24,192.168.99.0/24,192.168.216.2/24
 set api-ssl disabled=yes
 
 

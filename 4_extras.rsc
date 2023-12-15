@@ -39,6 +39,12 @@ set allowed-interface-list=VLAN
 /tool mac-server ping
 set enabled=no
 
+#### BTH VPN
+/ip/cloud/
+set back-to-home-vpn=enabled
+/interface list member
+add interface=back-to-home-vpn list=VLAN 
+
 /user
 add name=changemeadminuser password=changemeadminpass group=full
 remove admin
