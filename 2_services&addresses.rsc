@@ -51,8 +51,8 @@ add comment="nameofinternetconnection" interface=ether1
 add address=192.168.1.1/24 interface=Private_VLAN network=192.168.1.0
 add address=192.168.20.1/24 interface=Guest_VLAN network=192.168.20.0
 add address=192.168.99.1/24 interface=MGMT_VLAN network=192.168.99.0
-add address=192.168.40.1/24 interface=MGMT_VLAN network=192.168.40.0
-add address=192.168.8.1/24 interface=MGMT_VLAN network=192.168.8.0
+add address=192.168.40.1/24 interface=Systems_VLAN network=192.168.40.0
+add address=192.168.8.1/24 interface=NVX_VLAN network=192.168.8.0
 
 
 #### DNS
