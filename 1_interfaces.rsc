@@ -20,6 +20,8 @@ set [ find default-name=ether12 ] disabled=yes
 add interface=bridge name=Private_VLAN vlan-id=10
 add interface=bridge name=Guest_VLAN vlan-id=20
 add interface=bridge name=MGMT_VLAN vlan-id=99
+add interface=bridge name=Systems_VLAN vlan-id=40
+add interface=bridge name=NVX_VLAN vlan-id=8
 
 /interface bridge port
 add bridge=bridge interface=ether6 pvid=10
@@ -33,6 +35,8 @@ add bridge=bridge interface=ether13 pvid=10
 add bridge=bridge untagged=ether6,ether7,ether8,ether9,ether10,ether13 tagged=bridge vlan-ids=10
 add bridge=bridge tagged=bridge,ether6,ether7,ether8,ether9,ether10,ether13 vlan-ids=20
 add bridge=bridge tagged=bridge,ether6,ether7,ether8,ether9,ether10,ether13 vlan-ids=99
+add bridge=bridge tagged=bridge,ether6,ether7,ether8,ether9,ether10,ether13 vlan-ids=40
+add bridge=bridge tagged=bridge,ether6,ether7,ether8,ether9,ether10,ether13 vlan-ids=8
 
 /interface list
 add name=WAN
@@ -45,4 +49,6 @@ add interface=MGMT_VLAN list=MGMT
 add interface=MGMT_VLAN list=VLAN
 add interface=Private_VLAN list=VLAN
 add interface=Guest_VLAN list=VLAN
+add interface=Systems_VLAN list=VLAN
+add interface=NVX_VLAN list=VLAN
 # add interface=pppoe1 list=WAN
