@@ -56,10 +56,10 @@ add address=192.168.99.1 name=router.lan
 /ip service
 set telnet disabled=yes
 set ftp disabled=yes
-set www address=192.168.1.0/24,192.168.99.0/24,192.168.216.2/24
-set ssh address=192.168.1.0/24,192.168.99.0/24,192.168.216.2/24
+set www address=192.168.1.0/24,192.168.99.0/24,192.168.216.0/24
+set ssh address=192.168.1.0/24,192.168.99.0/24,192.168.216.0/24
 set api disabled=yes
-set winbox address=192.168.1.0/24,192.168.99.0/24,192.168.216.2/24
+set winbox address=192.168.1.0/24,192.168.99.0/24,192.168.216.0/24
 set api-ssl disabled=yes
 
 
