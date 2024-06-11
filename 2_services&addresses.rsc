@@ -2,10 +2,6 @@
 # 192.168.1. (LAN pool)
 # 192.168.20. (Guest pool)
 # 192.168.99. (Management pool)
-# 10.0.1. (VPN pool)
-# changemeipseckey (IPSEC PSK)
-# changemevpnuser (VPN user)
-# changemevpnpass (VPN Password)
 
 #### DHCP Server
 
@@ -13,7 +9,6 @@
 add name=Private-pool ranges=192.168.1.81-192.168.1.254
 add name=Guest-pool ranges=192.168.20.2-192.168.20.254
 add name=MGMT-pool ranges=192.168.99.81-192.168.99.254
-add name=VPN-pool ranges=10.0.1.2-10.0.1.254
 
 /ip dhcp-server
 add address-pool=Private-pool disabled=no interface=Private_VLAN lease-time=1d name=Private-DHCP

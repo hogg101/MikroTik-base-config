@@ -1,22 +1,20 @@
-# MikroTik base config
-
 This is a collection of MikroTik scripts which can be modified for production.
 
 The goal is to set up a solid foundation for a home router with the following features:
 
 - VLANs in place to separate broadcast domains into “Private, Guest and Management” subnets. By default, inter-VLAN-routing is allowed through the firewall. Additional configuration will be needed to block VLANs from accessing each other.
-- Decent basic IPv4 and IPv6 stateful firewalls.
+- Basic IPv4 and IPv6 stateful firewalls.
 - Single WAN but with the ability to easily add multiple internet connections and apply policy based routing or failover.
 - Unnecessary services turned off. Useful ones kept on but secured.
-- L2TP VPN set up for remote access.
+- Back-to-home Wireguard VPN enabled
 - Graphing for WAN and resources.
 - Fasttrack enabled but can simply be disabled if queues/QoS are to be added.
 
 ## Interfaces
 
-1. **/interface/bridge** 
+1. **/interface/bridge**
 Most routers will only need a single “bridge”. Make sure vlan-filtering=**no** until all your interfaces and IP settings are ready. If **=yes** before you’re ready you will lose connectivity.
-2. **/interface/ethernet** 
+2. **/interface/ethernet**
 Interfaces are enabled by default so this section is for disabling redundant ports and adding comments. For example on the RB4011 with two switch chips, I would use one switch chip for my LAN bridge and disable all ports on the second switch chip apart from any internet connections.
 3. **/interface/pppoe-client**
 Leave this commented out unless you need a pppoe client for an internet connection.
@@ -33,9 +31,9 @@ Add interfaces to your lists. Because we’re using VLANs we don’t need to add
 
 ## Services & Addresses
 
-1. Use the find and replace prompts to set the IP ranges of your subnets and VPN pool. Also find and replace the VPN PSK, username and password for the L2TP road warrior VPN server.
+1. Use the find and replace prompts to set the IP ranges of your subnets and VPN pool.
 2. **/ip/pool**
-Add ranges of IP addresses for your subnets and one for your VPN users.
+Add ranges of IP addresses for your subnets.
 3. **/ip/dhcp-server**
 Add DHCPv4 servers to the interfaces that need one.
 4. **/ip/dhcp-server/network**
@@ -48,15 +46,9 @@ Give IP addresses and subnet info to your VLAN interfaces.
 Set your own DNS servers that you would like the router to use and allow requests from devices on the LAN to use the DNS cache on the router.
 8. **/ip/dns/static**
 Here you can add manual DNS entries.
-9. **/ppp/profile**
-Set up a profile for all your VPN users to share settings.
-10. **/ppp/secret**
-Add a VPN user and set their password for remote access.
-11. **/interface/l2tp-server/server**
-Set up the L2TP server and give it a pre-shared-key.
-12. **/ip/service**
+9. **/ip/service**
 Disable the services that won’t be required and specify the addresses that are allowed access to the services that will remain enabled.
-13. **/interface/bridge**
+10. **/interface/bridge**
 At this point you’re ready to enable VLAN filtering on the bridge. You should be able to regain access via the IP address of the router’s “native” or “untagged” VLAN once you get an address from the DHCP server.
 
 ## Firewall
@@ -100,4 +92,4 @@ Add a new user with full rights and remove the default “admin” one.
 
 ## Scripts
 
-Currently this script just contains a script that will automatically update the WAN IP using NoIP’s DDNS service. It also contains a scheduler that will run it every hour.
+Currently this script just contains a RouterOS script that will automatically update the WAN IP using NoIP’s DDNS service. It also contains a scheduler that will run it every hour.
