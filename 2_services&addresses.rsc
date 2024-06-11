@@ -4,9 +4,6 @@
 # 192.168.99. (Management pool)
 # 192.168.40. (Systems pool)
 # 192.168.8. (NVX pool)
-# 10.0.1. (VPN pool)
-# changemeipseckey (IPSEC PSK)
-
 
 #### DHCP Server
 
