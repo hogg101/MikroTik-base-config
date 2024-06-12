@@ -40,10 +40,11 @@ set allowed-interface-list=VLAN
 set enabled=no
 
 #### BTH VPN
-/ip/cloud/
-set back-to-home-vpn=enabled
-/interface list member
-add interface=back-to-home-vpn list=VLAN 
+/ip/cloud/set back-to-home-vpn=enabled
+
+/system/note/set show-at-login=yes show-at-cli-login=yes \
+note="For BTH VPN to operate correctly, add it to the VLAN Interface List /inte
+rface list member add interface=back-to-home-vpn list=VLAN after the cloud connection is established."
 
 /user
 add name=changemeadminuser password=changemeadminpass group=full
