@@ -2,7 +2,7 @@ This is a collection of MikroTik scripts which can be modified for production.
 
 The goal is to set up a solid foundation for a home router with the following features:
 
-- VLANs in place to separate broadcast domains into “Private, Guest and Management” subnets. By default, inter-VLAN-routing is allowed through the firewall. Additional configuration will be needed to block VLANs from accessing each other.
+- VLANs in place to separate broadcast domains into “Private, Guest and Management” subnets. By default, inter-VLAN-routing is allowed through the firewall. Additional configuration will be needed to block VLANs from accessing each other if desired.
 - Basic IPv4 and IPv6 stateful firewalls.
 - Single WAN but with the ability to easily add multiple internet connections and apply policy based routing or failover.
 - Unnecessary services turned off. Useful ones kept on but secured.
@@ -27,7 +27,7 @@ Use this section to set which VLAN’s you want to be tagged or untagged per por
 7. **/interface/list**
 Add lists you can use to group interfaces into. These groups will make firewall rules easier to manage.
 8. **/interface/list/member**
-Add interfaces to your lists. Because we’re using VLANs we don’t need to add every interface on the bridge, we only need to add the VLANs to lists. If using a PPPoE client don’t forget to add it to the WAN group otherwise it won’t be firewalled.
+Add interfaces to your lists. Because we’re using VLANs we don’t need to add every interface on the bridge, we only need to add the VLANs to lists. If using a PPPoE client don’t forget to add it to the WAN group otherwise it won’t be firewalled or have NAT.
 
 ## Services & Addresses
 
