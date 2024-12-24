@@ -27,11 +27,10 @@ add action=drop chain=forward comment=\
 add action=masquerade chain=srcnat comment="Hairpin NAT" dst-address=\
     192.168.1.0/24 src-address=192.168.1.0/24
 add action=masquerade chain=srcnat comment="NAT masquerade" \
-    ipsec-policy=out,none out-interface-list=WAN
+    out-interface-list=WAN
 add action=dst-nat chain=dstnat comment="Example port forward, needs dst add list WANIP" \
     dst-address=!254.255.255.255 dst-port=8001 log=\
     yes protocol=tcp to-addresses=192.168.1.5 to-ports=8001 disabled=yes
-    
 
 /ipv6 firewall address-list
 add address=::/128 comment="unspecified address" list=bad_ipv6
@@ -57,14 +56,6 @@ add action=accept chain=input comment="accept UDP traceroute" port=\
 add action=accept chain=input comment=\
     "accept DHCPv6-Client prefix delegation." dst-port=546 protocol=\
     udp src-address=fe80::/10
-add action=accept chain=input comment="accept IKE" dst-port=500,4500 \
-    protocol=udp
-add action=accept chain=input comment="accept ipsec AH" protocol=\
-    ipsec-ah
-add action=accept chain=input comment="accept ipsec ESP" protocol=\
-    ipsec-esp
-add action=accept chain=input comment=\
-    "accept all that matches ipsec policy" ipsec-policy=in,ipsec
 add action=drop chain=input comment=\
     "drop everything else not coming from a VLAN" in-interface-list=\
     !VLAN
@@ -81,15 +72,6 @@ add action=drop chain=forward comment="rfc4890 drop hop-limit=1" \
     hop-limit=equal:1 protocol=icmpv6
 add action=accept chain=forward comment="accept ICMPv6" protocol=\
     icmpv6
-add action=accept chain=forward comment="accept HIP" protocol=139
-add action=accept chain=forward comment="accept IKE" dst-port=\
-    500,4500 protocol=udp
-add action=accept chain=forward comment="accept ipsec AH" protocol=\
-    ipsec-ah
-add action=accept chain=forward comment="accept ipsec ESP" protocol=\
-    ipsec-esp
-add action=accept chain=forward comment=\
-    "accept all that matches ipsec policy" ipsec-policy=in,ipsec
 add action=drop chain=forward comment=\
     "drop everything else not coming from a VLAN" in-interface-list=\
     !VLAN
